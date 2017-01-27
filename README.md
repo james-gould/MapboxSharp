@@ -11,15 +11,18 @@ For full documentation on the `v5` API, please refer to: https://www.mapbox.com/
 It's early days yet, but here's what's planned:
 
 1. Implementation of the following:
- 1. [Directions](https://www.mapbox.com/api-documentation/#directions)
- 2. [Geocoding](https://www.mapbox.com/api-documentation/#geocoding)
- 3. [Uploads](https://www.mapbox.com/api-documentation/#uploads)
- 4. [Static](https://www.mapbox.com/api-documentation/#static)
- 5. [Distance](https://www.mapbox.com/api-documentation/#distance)
- 6. [Map Matching](https://www.mapbox.com/api-documentation/#map-matching)
- 7. [Styles](https://www.mapbox.com/api-documentation/#styles)
- 8. [Maps](https://www.mapbox.com/api-documentation/#maps)
- 9. [Datasets](https://www.mapbox.com/api-documentation/#datasets)
+ * [Directions](https://www.mapbox.com/api-documentation/#directions)
+ * [Geocoding](https://www.mapbox.com/api-documentation/#geocoding)
+ * [Uploads](https://www.mapbox.com/api-documentation/#uploads)
+ * [Static](https://www.mapbox.com/api-documentation/#static)
+ * [Distance](https://www.mapbox.com/api-documentation/#distance)
+ * [Map Matching](https://www.mapbox.com/api-documentation/#map-matching)
+ * [Styles](https://www.mapbox.com/api-documentation/#styles)
+ * [Maps](https://www.mapbox.com/api-documentation/#maps)
+ * [Datasets](https://www.mapbox.com/api-documentation/#datasets)
+ 
+ 2. Asyncronous code to take full advantage of the API speed.
+ 3. Weekly refactoring and code cleanups. 
 
 # What's been done
 
