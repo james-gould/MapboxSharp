@@ -6,8 +6,7 @@ An easy to use wrapper library for the Mapbox API. Simply Add a reference to the
 
 It's early days yet, but here's what's planned:
 
-- Full support of `Mapbox Directions`, along with `Map Matching`.
-- `Geocoding` support.
+- Full support of `Mapbox Directions`, `Map Matching` and `Geocoding`. 
 
 # What's been done
 
