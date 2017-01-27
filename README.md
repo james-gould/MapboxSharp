@@ -21,8 +21,8 @@ It's early days yet, but here's what's planned:
  * [Maps](https://www.mapbox.com/api-documentation/#maps)
  * [Datasets](https://www.mapbox.com/api-documentation/#datasets)
  
- 2. Asyncronous code to take full advantage of the API speed.
- 3. Weekly refactoring and code cleanups. 
+2. Asyncronous code to take full advantage of the API speed.
+3. Weekly refactoring and code cleanups. 
 
 # What's been done
 
