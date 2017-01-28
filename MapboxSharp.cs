@@ -18,6 +18,15 @@ namespace MapboxSharp
         public MapboxSharp(string apiKey)
         {
             _mapboxConnection = new Connection(apiKey);
+
+
+        }
+
+        public void GenerateRoute(double startLon, double startLat, double endLon, double endLat)
+        {
+            
+
+
         }
     }
 }
