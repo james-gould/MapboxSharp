@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MapboxSharp.APIs.Distance
+namespace MapboxSharp.APIs
 {
     class Distance
     {

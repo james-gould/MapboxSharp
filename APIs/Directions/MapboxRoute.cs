@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace MapboxSharp.APIs.Directions
+namespace MapboxSharp.APIs
 {
 
     /// <summary>
@@ -36,7 +32,17 @@ namespace MapboxSharp.APIs.Directions
         ///  Index into bearings/entry array. Used to calculate the bearing before the turn. 
         /// </summary>
         public int? @in { get; set; }
+
+        public Intersection()
+        {
+            @out = 0;
+            entry = new List<bool>();
+            bearings = new List<int>();
+            location = new List<double>();
+            @in = 0;
+        }
     }
+
     /// <summary>
     /// Maneuver object, included in each Step. Provides additional detail about the action needed fpr the step/
     /// </summary>
@@ -76,6 +82,17 @@ namespace MapboxSharp.APIs.Directions
         /// If the maneuver is being performed on a roundabout, exit will contain an int depicting which exit to take.
         /// </summary>
         public int? exit { get; set; }
+
+        public Maneuver()
+        {
+            bearing_after = 0;
+            bearing_before = 0;
+            type = string.Empty;
+            modifier = string.Empty;
+            location = new List<double>();
+            instruction = string.Empty;
+            exit = 0;
+        }
     }
 
     /// <summary>
@@ -118,7 +135,19 @@ namespace MapboxSharp.APIs.Directions
         /// <summary>
         /// Typically B/A roads such as A38 or B3423 (Can non-UK people please confirm this? Too much sovereignty).
         /// </summary>
-        public string @ref { get; set; } 
+        public string @ref { get; set; }
+
+        public Step()
+        {
+            intersections = new List<Intersection>();
+            geometry = string.Empty;
+            maneuver = new Maneuver();
+            duration = double.NaN;
+            distance = double.NaN;
+            name = string.Empty;
+            mode = string.Empty;
+            @ref = string.Empty;
+        }
     }
 
     /// <summary>
@@ -127,7 +156,7 @@ namespace MapboxSharp.APIs.Directions
     public class Leg
     {
         /// <summary>
-        /// List of Step objects, containing each part of the route.
+        /// List of Step objects containing each part of the route.
         /// </summary>
         public List<Step> steps { get; set; }
         
@@ -145,6 +174,14 @@ namespace MapboxSharp.APIs.Directions
         /// Distance of entire leg in meters.
         /// </summary>
         public double distance { get; set; }
+
+        public Leg()
+        {
+            steps = new List<Step>();
+            summary = string.Empty;
+            duration = double.NaN;
+            distance = double.NaN;
+        }
     }
 
     /// <summary>
@@ -171,6 +208,14 @@ namespace MapboxSharp.APIs.Directions
         /// Distance for the route in meters.
         /// </summary>
         public double distance { get; set; }
+
+        public Route()
+        {
+            legs = new List<Leg>();
+            geometry = string.Empty;
+            duration = double.NaN;
+            distance = double.NaN;
+        }
     }
 
     /// <summary>
@@ -187,6 +232,12 @@ namespace MapboxSharp.APIs.Directions
         /// Array with point, formatted as longitude, latitude.
         /// </summary>
         public List<double> location { get; set; }
+
+        public Waypoint()
+        {
+            name = string.Empty;
+            location = new List<double>();
+        }
     }
 
     /// <summary>
@@ -208,5 +259,12 @@ namespace MapboxSharp.APIs.Directions
         /// Response code to flag whether the GET request worked as intended or not. 
         /// </summary>
         public string code { get; set; }
+
+        public MapboxRoute()
+        {
+            routes = new List<Route>();
+            waypoints = new List<Waypoint>();
+            code = string.Empty;
+        }
     }
 }

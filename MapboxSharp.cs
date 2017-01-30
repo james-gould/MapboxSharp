@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MapboxSharp.APIs;
 
 namespace MapboxSharp
 {
@@ -22,11 +23,9 @@ namespace MapboxSharp
 
         }
 
-        public void GenerateRoute(double startLon, double startLat, double endLon, double endLat)
+        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat)
         {
-            
-
-
+            return new MapboxRoute();
         }
     }
 }
