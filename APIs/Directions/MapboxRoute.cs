@@ -12,10 +12,29 @@ namespace MapboxSharp.APIs.Directions
     /// </summary>
     public class Intersection
     {
+        /// <summary>
+        /// Index into the bearings/entry array. Used to extract the bearing after the turn.
+        /// </summary>
         public int @out { get; set; }
+
+        /// <summary>
+        /// A list of entry flags, corresponding in a 1:1 relationship to the bearings. 
+        /// </summary>
         public List<bool> entry { get; set; }
+
+        /// <summary>
+        /// A list of bearing values (for example [0,90,180,270]) that are available at the intersection. 
+        /// </summary>
         public List<int> bearings { get; set; }
+
+        /// <summary>
+        /// An array containing the WGS84 point of the waypoint, formatted as longitude, latitude.
+        /// </summary>
         public List<double> location { get; set; }
+
+        /// <summary>
+        ///  Index into bearings/entry array. Used to calculate the bearing before the turn. 
+        /// </summary>
         public int? @in { get; set; }
     }
     /// <summary>
@@ -23,12 +42,39 @@ namespace MapboxSharp.APIs.Directions
     /// </summary>
     public class Maneuver
     {
+        /// <summary>
+        /// Number between 0 and 360 indicating the clockwise angle from true north to the direction of travel right after the maneuver.
+        /// </summary>
         public int bearing_after { get; set; }
+
+        /// <summary>
+        /// String indicating the type of maneuver
+        /// </summary>
         public string type { get; set; }
+
+        /// <summary>
+        /// Provides the direction of the turn being made.
+        /// </summary>
         public string modifier { get; set; }
+
+        /// <summary>
+        /// Bearing before the turn.
+        /// </summary>
         public int bearing_before { get; set; }
+
+        /// <summary>
+        /// Longitude, latitude point formatted as two doubles.
+        /// </summary>
         public List<double> location { get; set; }
+
+        /// <summary>
+        /// A human-readable instruction of how to execute the returned maneuver
+        /// </summary>
         public string instruction { get; set; }
+
+        /// <summary>
+        /// If the maneuver is being performed on a roundabout, exit will contain an int depicting which exit to take.
+        /// </summary>
         public int? exit { get; set; }
     }
 
@@ -80,20 +126,50 @@ namespace MapboxSharp.APIs.Directions
     /// </summary>
     public class Leg
     {
+        /// <summary>
+        /// List of Step objects, containing each part of the route.
+        /// </summary>
         public List<Step> steps { get; set; }
+        
+        /// <summary>
+        /// ???
+        /// </summary>
         public string summary { get; set; }
+
+        /// <summary>
+        /// Double indicating the estimated travel time in seconds.
+        /// </summary>
         public double duration { get; set; }
+
+        /// <summary>
+        /// Distance of entire leg in meters.
+        /// </summary>
         public double distance { get; set; }
     }
 
     /// <summary>
-    /// Route object, contains a list of Leg objects and an encoded polyline in the geometry string. Use ValidationUtils.DecodeEncodedPolyline(geometry) to convert to a collection of System.Windows.Points
+    /// Route object, contains a list of Leg objects and an encoded polyline in the geometry string.
     /// </summary>
     public class Route
     {
+        /// <summary>
+        /// Collection of Leg objects.
+        /// </summary>
         public List<Leg> legs { get; set; }
+
+        /// <summary>
+        /// Encoded polyline. Use ValidationUtils.DecodeEncodedPolyline(geometry) to convert it to a List of System.Windows.Points
+        /// </summary>
         public string geometry { get; set; }
+
+        /// <summary>
+        /// Time for route in seconds.
+        /// </summary>
         public double duration { get; set; }
+
+        /// <summary>
+        /// Distance for the route in meters.
+        /// </summary>
         public double distance { get; set; }
     }
 
@@ -102,7 +178,14 @@ namespace MapboxSharp.APIs.Directions
     /// </summary>
     public class Waypoint
     {
+        /// <summary>
+        /// String, name of the waypoint. Can contain special characters.
+        /// </summary>
         public string name { get; set; }
+
+        /// <summary>
+        /// Array with point, formatted as longitude, latitude.
+        /// </summary>
         public List<double> location { get; set; }
     }
 
@@ -111,8 +194,19 @@ namespace MapboxSharp.APIs.Directions
     /// </summary>
     public class MapboxRoute
     {
+        /// <summary>
+        /// Collection of all routes generated.
+        /// </summary>
         public List<Route> routes { get; set; }
+
+        /// <summary>
+        /// Significant points along the generated route(s).
+        /// </summary>
         public List<Waypoint> waypoints { get; set; }
+
+        /// <summary>
+        /// Response code to flag whether the GET request worked as intended or not. 
+        /// </summary>
         public string code { get; set; }
     }
 }
