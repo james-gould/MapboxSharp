@@ -1,6 +1,6 @@
 # MapboxSharp
 
-*This project is currently in the early phases of development and subject to change. Before integrating it into an existing product, please be aware that future commits may break functionality. 
+*This project is currently in the early phases of development and subject to change. Before integrating it into an existing product, please be aware that future commits may break functionality.*
 
 An easy to use wrapper library for the Mapbox API. Simply add a reference to the MapboxSharp `.dll` to your project and you're good to go!
 
