@@ -13,14 +13,14 @@ namespace MapboxSharp.Utilities
     public static class ValidationUtils
     {
         /// <summary>
-        /// Mapbox accepts WGS84 coordinates in (lon, lat) format. 
+        /// Checks if a longitude/latitude pair is correctly formatted and between their definitive ranges.
         /// </summary>
         /// <param name="lon"></param>
         /// <param name="lat"></param>
         /// <returns></returns>
         public static bool ValidLonLat(double lon, double lat)
         {
-            return (lat >= -90 && lat <= 90) && (lon >= -180 && lon <= 180);
+            return lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180;
         }
 
         /// <summary>

@@ -20,6 +20,7 @@ namespace MapboxSharp.Utilities
             {
                 throw new WebException("Could not generate JSON request from empty URL");
             }
+
             using (WebClient client = new WebClient())
             {
                 return client.DownloadString(conn);

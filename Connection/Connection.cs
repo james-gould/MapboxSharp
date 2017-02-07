@@ -17,11 +17,6 @@ namespace MapboxSharp
 
         public Connection(string apiKey)
         {
-            if (string.IsNullOrEmpty(apiKey))
-            {
-                throw new FormatException("API key cannot be null or empty");
-            }
-
             ApiKey = apiKey;
             AccessPoint = "https://api.mapbox.com/";
             Token = $"?access_token={ApiKey}";
