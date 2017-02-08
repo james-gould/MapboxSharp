@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,15 +17,12 @@ namespace MapboxSharp
         private string _token = $"?access_token={MapboxSharp.ApiKey}";
 
         /// <summary>
-        /// TODO: Currently not thread safe. Consider locking.
+        /// Return the instance if not null, otherwise instantiate Connection and return the instance.
         /// </summary>
-        public static Connection Instance
-        {
-            get { return _instance ?? new Connection(); }
-        }
+        public static Connection Instance => _instance ?? new Connection();
 
         /// <summary>
-        /// Leave empty constructor so we know it's empty, not just forgotten :-)
+        /// Leave the empty constructor so we know it's empty, not just forgotten :-)
         /// </summary>
         private Connection()
         {
@@ -39,6 +37,33 @@ namespace MapboxSharp
         public string URL(string insertion)
         {
             return $"{_accessPoint}{insertion}{_token}";
+        }
+
+        /// <summary>
+        /// Make a HTTP request when expecting a JSON string response. 
+        /// </summary>
+        /// <param name="URL"></param>
+        /// <returns></returns>
+        public static string JsonWebRequest(string URL)
+        {
+            // TODO: Error handling. This needs looking into..
+            if (string.IsNullOrEmpty(URL))
+            {
+                throw new FormatException("Illegal request: Cannot generate JSON request from empty URL");
+            }
+
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    return client.DownloadString(URL);
+                }
+            }
+            catch (WebException e)
+            {
+                throw e;
+            }
+            
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MapboxSharp.APIs;
-using MapboxSharp.Utilities;
 
 using vdr = MapboxSharp.Utilities.ValidationUtils;
 
@@ -18,8 +14,7 @@ namespace MapboxSharp
     /// </summary>
     public sealed class MapboxSharp
     {
-        public static string ApiKey;
-
+        public static string ApiKey = string.Empty;
         public MapboxSharp(string apiKey)
         {
             if (string.IsNullOrEmpty(apiKey))

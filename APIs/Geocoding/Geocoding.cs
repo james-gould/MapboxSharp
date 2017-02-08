@@ -8,6 +8,9 @@ namespace MapboxSharp.APIs
 {
     public static class Geocoding
     {
-
+        public static MapboxLocation ReverseGeocode(double longitude, double latitude)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

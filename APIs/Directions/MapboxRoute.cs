@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MapboxSharp
+namespace MapboxSharp.APIs
 {
 
     /// <summary>
@@ -209,8 +209,12 @@ namespace MapboxSharp
         /// </summary>
         public double distance { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Route()
         {
+            // Construct the properties of the Route object to be empty to avoid exceptions. Use validation checking at a higher level please.
             legs = new List<Leg>();
             geometry = string.Empty;
             duration = double.NaN;
