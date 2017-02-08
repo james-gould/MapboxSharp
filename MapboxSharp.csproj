@@ -54,6 +54,7 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="MapboxSharp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ListExtensions.cs" />
     <Compile Include="Utilities\ValidationUtils.cs" />
     <Compile Include="Utilities\WebUtils.cs" />
   </ItemGroup>

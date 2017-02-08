@@ -7,19 +7,38 @@ using System.Threading.Tasks;
 namespace MapboxSharp
 {
     /// <summary>
-    /// Provides an access point to the Mapbox API.
+    /// Provides an access point to the Mapbox API. Singleton implementation.
     /// </summary>
-    public class Connection
+    public sealed class Connection
     {
-        public string AccessPoint { get; private set; }
-        public string ApiKey { get; }
-        public string Token { get; private set; }
+        private static readonly Connection _instance = new Connection();
+        private string _accessPoint = "https://api.mapbox.com/";
+        private string _token = $"?access_token={MapboxSharp.ApiKey}";
 
-        public Connection(string apiKey)
+        /// <summary>
+        /// TODO: Currently not thread safe. Consider locking.
+        /// </summary>
+        public static Connection Instance
         {
-            ApiKey = apiKey;
-            AccessPoint = "https://api.mapbox.com/";
-            Token = $"?access_token={ApiKey}";
+            get { return _instance ?? new Connection(); }
+        }
+
+        /// <summary>
+        /// Leave empty constructor so we know it's empty, not just forgotten :-)
+        /// </summary>
+        private Connection()
+        {
+
+        }
+
+        /// <summary>
+        /// Construct the URL for an API request. 
+        /// </summary>
+        /// <param name="insertion">The string to be added into the GET request URL</param>
+        /// <returns>The full URL to make a GET reqest to.</returns>
+        public string URL(string insertion)
+        {
+            return $"{_accessPoint}{insertion}{_token}";
         }
     }
 }

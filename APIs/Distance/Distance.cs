@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MapboxSharp.APIs
 {
-    class Distance
+    public static class Distance
     {
+
     }
 }

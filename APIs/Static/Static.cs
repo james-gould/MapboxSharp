@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MapboxSharp.APIs
 {
-    class Static
+    public static class Static
     {
+
     }
 }
