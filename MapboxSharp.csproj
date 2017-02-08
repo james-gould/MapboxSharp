@@ -54,9 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIs\Datasets\Datasets.cs" />
-    <Compile Include="APIs\Directions\DirectionProfiles.cs" />
     <Compile Include="APIs\Directions\Directions.cs" />
     <Compile Include="APIs\Directions\MapboxRoute.cs" />
+    <Compile Include="APIs\Directions\RouteSettings.cs" />
     <Compile Include="APIs\Distance\Distance.cs" />
     <Compile Include="APIs\Geocoding\Geocoding.cs" />
     <Compile Include="APIs\Geocoding\MapboxLocation.cs" />

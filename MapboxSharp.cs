@@ -30,7 +30,7 @@ namespace MapboxSharp
             }
 
             UserName = userName;
-            ApiKey = apiKey;
+            ApiKey = "access_token=" + apiKey;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace MapboxSharp
         /// <param name="endLat">Latitude of the destination</param>
         /// <param name="goVia">Collection of System.Windows.Points, if the route being generated should navigate via points on the map add them to this list.</param>
         /// <returns></return>
-        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat, Profiles profile, List<System.Windows.Point> goVia = null)
+        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat, RouteProfiles profile, List<System.Windows.Point> goVia = null)
         {
             if (!vdr.ValidLonLat(startLon, startLat) || !vdr.ValidLonLat(endLon, endLat))
             {
