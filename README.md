@@ -27,4 +27,4 @@ It's early days yet, but here's what's planned:
 
 Thanks for being interested! If you're looking for a quick in to the project, check out some of the outstanding [issues](https://github.com/james-gould/MapboxSharp/issues). This should help you get acquanited with the project and code fairly quickly.
 
-The project follows a string styling guide, which hasn't been written up yet. If you're wanting send a pull request, don't worry about stylistic differences. If anything needs updating prior to the writeup of the styleguide, I'll fix up the pull request so it's stylistically consistent with the rest of the code.
+The project follows a strict styling guide, which hasn't been written up yet. If you're wanting send a pull request, don't worry about stylistic differences. If anything needs updating prior to the writeup of the styleguide, I'll fix up the pull request so it's stylistically consistent with the rest of the code.
