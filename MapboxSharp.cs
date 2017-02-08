@@ -9,7 +9,7 @@ namespace MapboxSharp
 {
     /// <summary>
     /// A C# wrapper for the Mapbox v5 API. 
-    /// For the full documentation, please refer to https://www.mapbox.com/api-documentation
+    /// For the full documentation, please refer to https://www.mapbox.com/api-documentation /
     /// Full list of API functionality: https://www.mapbox.com/developers/
     /// </summary>
     public sealed class MapboxSharp
@@ -42,7 +42,7 @@ namespace MapboxSharp
         /// <param name="endLat">Latitude of the destination</param>
         /// <param name="goVia">Collection of System.Windows.Points, if the route being generated should navigate via points on the map add them to this list.</param>
         /// <returns></return>
-        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat, RouteProfiles profile, List<System.Windows.Point> goVia = null)
+        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat, DirectionsProfiles profile, List<System.Windows.Point> goVia = null)
         {
             if (!vdr.ValidLonLat(startLon, startLat) || !vdr.ValidLonLat(endLon, endLat))
             {
@@ -57,5 +57,6 @@ namespace MapboxSharp
 
             return Directions.GenerateRouteTwoPoints(startLon, startLat, endLon, endLat, profile);
         }
+       
     }
 }

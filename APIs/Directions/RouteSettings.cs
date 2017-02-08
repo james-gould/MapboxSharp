@@ -6,42 +6,55 @@ using System.Threading.Tasks;
 
 namespace MapboxSharp.APIs
 {
+    /// <summary>
+    /// Settings for the Directions API request. 
+    /// </summary>
     public class RouteSettings
     {
-        public RouteProfiles Profile { get; set; }
+        public DirectionsProfiles Profile { get; set; }
         public double StartLon { get; set; }
         public double StartLat { get; set; }
         public double EndLon { get; set; }
         public double EndLat { get; set; }
-        public List<DirectionsOptions> Options = null;
+
+        public DirectionsOptions Options;
 
         public List<System.Windows.Point> NavigateVia = new List<System.Windows.Point>();
+    }
 
-        private string UrlGenerator()
+    public class DirectionsOptions
+    {
+        public bool Alternatives = false;
+        public bool Steps = false;
+        public bool ContinueStraight = false;
+        public DirectionsProfiles Profile = DirectionsProfiles.Driving;
+
+        public DirectionsGeometries Geometries = DirectionsGeometries.Polyline;
+
+        /// <summary>
+        /// Parameters for Directions URL. Alternatives, Steps, ContinueStraight, Profile, Geometries.
+        /// </summary>
+        public DirectionsOptions()
         {
-            if (Options?.Count >= 1)
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("?");
-
-                foreach (var option in Options)
-                {
-                    sb.Append(option + "&");
-                }
-
-                return string.Empty;
-            }
-
-            return $"directions/v5/{Profile}/{StartLon},{StartLat};{EndLon},{EndLat}{MapboxSharp.ApiKey}";
+            
         }
     }
 
-    public enum DirectionsOptions
+    public enum DirectionsOverview
     {
-        
+        Full,
+        Simplified,
+        False   
     }
 
-    public enum RouteProfiles
+    public enum DirectionsGeometries
+    {
+        GeoJson,
+        Polyline,
+        Polyine6,
+    }
+
+    public enum DirectionsProfiles
     {
         Driving,
         Walking,
