@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using MapboxSharp.Utilities;
+using Newtonsoft.Json;
 
 namespace MapboxSharp.APIs
 {
@@ -16,10 +17,16 @@ namespace MapboxSharp.APIs
         /// <param name="startLat">Latitude for your point of origin</param>
         /// <param name="endLon">Longitude for your destination</param>
         /// <param name="endLat">Latitude for your destination</param>
+        /// <param name="profile">Method of transportation used for the route. Any of the following: Driving, driving-traffic, walking, cycling</param>
         /// <returns>JSON string</returns>
-        public static MapboxRoute GenerateRouteTwoPoints(double startLon, double startLat, double endLon, double endLat)
+        public static MapboxRoute GenerateRouteTwoPoints(double startLon, double startLat, double endLon, double endLat, Profiles profile)
         {
-            throw new NotImplementedException();
+            string connectionString = Connection.Instance.URL($"directions/v5/mapbox/{profile}/{startLon},{startLat};{endLon},{endLat}&steps=true");
+            string jsonResponse = Connection.JsonWebRequest(connectionString);
+
+            MapboxRoute newRoute = JsonConvert.DeserializeObject<MapboxRoute>(jsonResponse);
+
+            return new MapboxRoute();
         }
 
         /// <summary>
@@ -29,9 +36,10 @@ namespace MapboxSharp.APIs
         /// <param name="startLat">Latitude for your point of origin</param>
         /// <param name="endLon">Longitude for your destination</param>
         /// <param name="endLat">Latitude for your destination</param>
+        /// <param name="profile">Method of transportation used for the route. Any of the following: Driving, driving-traffic, walking, cycling</param>
         /// <param name="goVia">Collection of points</param>
         /// <returns>A complete route</returns>
-        public static MapboxRoute GenerateRouteViaPoints(double startLon, double startLat, double endLon, double endLat, List<System.Windows.Point> goVia = null)
+        public static MapboxRoute GenerateRouteViaPoints(double startLon, double startLat, double endLon, double endLat, Profiles profile, List<System.Windows.Point> goVia = null)
         {
             throw new NotImplementedException();
         }

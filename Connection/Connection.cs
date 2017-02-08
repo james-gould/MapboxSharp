@@ -22,7 +22,7 @@ namespace MapboxSharp
         public static Connection Instance => _instance ?? new Connection();
 
         /// <summary>
-        /// Leave the empty constructor so we know it's empty, not just forgotten :-)
+        /// DO NOT CONSTRUCT, USE CONNECTION.INSTANCE TO ACCESS THE API CONNECTION.
         /// </summary>
         private Connection()
         {
@@ -63,7 +63,7 @@ namespace MapboxSharp
             {
                 throw e;
             }
-            
+
         }
     }
 }

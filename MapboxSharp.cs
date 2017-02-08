@@ -15,13 +15,21 @@ namespace MapboxSharp
     public sealed class MapboxSharp
     {
         public static string ApiKey = string.Empty;
-        public MapboxSharp(string apiKey)
+        public static string UserName = string.Empty;
+
+        /// <summary>
+        /// Access point for the API wrapper.
+        /// </summary>
+        /// <param name="apiKey">Your Mapbox.com API key</param>
+        /// <param name="userName">Your Mapbox.com username</param>
+        public MapboxSharp(string apiKey, string userName)
         {
             if (string.IsNullOrEmpty(apiKey))
             {
                 throw new FormatException("Your API key cannot be empty.");
             }
 
+            UserName = userName;
             ApiKey = apiKey;
         }
 
@@ -34,7 +42,7 @@ namespace MapboxSharp
         /// <param name="endLat">Latitude of the destination</param>
         /// <param name="goVia">Collection of System.Windows.Points, if the route being generated should navigate via points on the map add them to this list.</param>
         /// <returns></return>
-        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat, List<System.Windows.Point> goVia = null)
+        public MapboxRoute GenerateRoute(double startLon, double startLat, double endLon, double endLat, Profiles profile, List<System.Windows.Point> goVia = null)
         {
             if (!vdr.ValidLonLat(startLon, startLat) || !vdr.ValidLonLat(endLon, endLat))
             {
@@ -44,10 +52,10 @@ namespace MapboxSharp
             // If goVia is not null and has at least 1 item
             if (goVia?.Count >= 1)
             {
-                return Directions.GenerateRouteViaPoints(startLon, startLat, endLon, endLat, goVia);
+                return Directions.GenerateRouteViaPoints(startLon, startLat, endLon, endLat, profile, goVia);
             }
 
-            return Directions.GenerateRouteTwoPoints(startLon, startLat, endLon, endLat);
+            return Directions.GenerateRouteTwoPoints(startLon, startLat, endLon, endLat, profile);
         }
     }
 }
