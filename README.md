@@ -6,7 +6,7 @@ Previous Mapbox C# wrappers have become dorment, hence the birth of MapboxSharp.
 
 For full documentation on the `v5` API, please refer to: https://www.mapbox.com/api-documentation
 
-*This project is currently in the early phases of development and subject to change. Before integrating it into an existing product, please be aware that future commits may break functionality.*
+**This message will be removed when the implementation of each API has been completed, until then assume it does not work in any way, shape or form.**
 
 # Planned functionality
 
