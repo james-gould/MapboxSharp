@@ -14,8 +14,8 @@ namespace MapboxSharp
     /// </summary>
     public sealed class MapboxSharp
     {
-        public static string ApiKey = string.Empty;
-        public static string UserName = string.Empty;
+        public static string ApiKey;
+        public static string UserName;
 
         /// <summary>
         /// Access point for the API wrapper.

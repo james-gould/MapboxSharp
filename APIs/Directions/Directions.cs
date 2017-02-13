@@ -8,7 +8,7 @@ namespace MapboxSharp.APIs
     /// <summary>
     /// Access to the Directions API, generating a route through OSRM.
     /// </summary>
-    public static class Directions
+    public class Directions
     {
         /// <summary>
         /// Generate OSRM route from the point of origin to the destination. 
@@ -22,10 +22,10 @@ namespace MapboxSharp.APIs
         public static MapboxRoute GenerateRouteTwoPoints(double startLon, double startLat, double endLon, double endLat, DirectionsProfiles profile)
         {
             string connectionString = Connection.Instance.URL($"directions/v5/mapbox/{profile}/{startLon},{startLat};{endLon},{endLat}&steps=true");
-            string jsonResponse = Connection.JsonWebRequest(connectionString);
+            string jsonResponse = Connection.DownloadJsonString(connectionString);
 
             MapboxRoute newRoute = JsonConvert.DeserializeObject<MapboxRoute>(jsonResponse);
-            
+
             return new MapboxRoute();
         }
 
@@ -42,6 +42,18 @@ namespace MapboxSharp.APIs
         public static MapboxRoute GenerateRouteViaPoints(double startLon, double startLat, double endLon, double endLat, DirectionsProfiles profile, List<System.Windows.Point> goVia = null)
         {
             throw new NotImplementedException();
+        }
+
+        private List<Step> BuildRouteCollection(MapboxRoute deserializedJson)
+        {
+            if (deserializedJson.routes.Count == 0 || deserializedJson.routes[0]?.legs[0]?.steps == null) { throw new JsonException("Could not deserialize route from Mapbox JSON string."); }
+
+            List<Step> currentRoute = new List<Step>();
+
+            currentRoute.AddRange(deserializedJson.routes[0].legs[0].steps);
+
+            return currentRoute;
+
         }
     }
 }
