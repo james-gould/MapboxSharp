@@ -44,26 +44,17 @@ namespace MapboxSharp
         /// </summary>
         /// <param name="URL"></param>
         /// <returns></returns>
-        public static string JsonWebRequest(string URL)
+        public static string DownloadJsonString(string URL)
         {
-            // TODO: Error handling. This needs looking into..
             if (string.IsNullOrEmpty(URL))
             {
                 throw new FormatException("Illegal request: Cannot generate JSON request from empty URL");
             }
 
-            try
+            using (WebClient client = new WebClient())
             {
-                using (WebClient client = new WebClient())
-                {
-                    return client.DownloadString(URL);
-                }
+                return client.DownloadString(URL);
             }
-            catch (WebException e)
-            {
-                throw e;
-            }
-
         }
     }
 }
