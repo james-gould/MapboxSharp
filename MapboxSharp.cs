@@ -26,7 +26,7 @@ namespace MapboxSharp
         {
             if (string.IsNullOrEmpty(apiKey))
             {
-                throw new FormatException("Your API key cannot be empty.");
+                throw new FormatException("Your API key cannot be an empty or null");
             }
 
             UserName = userName;
