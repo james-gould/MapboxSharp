@@ -1,3 +1,7 @@
+# Dead.
+
+Mapbox already has their own C# wrapper for their API. I am an idiot. Shame shame shame.
+
 # MapboxSharp
 
 An easy to use wrapper library for the Mapbox API. Simply add a reference to the MapboxSharp `.dll` to your project and you're good to go!
